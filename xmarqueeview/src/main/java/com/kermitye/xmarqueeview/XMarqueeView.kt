@@ -20,7 +20,7 @@ class XMarqueeView @JvmOverloads constructor(context: Context?, attrs: Attribute
     /**
      * 是否设置动画时间间隔
      */
-    private var isSetAnimDuration = false
+    var isSetAnimDuration = false
 
     /**
      * 是否单行显示
@@ -35,7 +35,7 @@ class XMarqueeView @JvmOverloads constructor(context: Context?, attrs: Attribute
     /**
      * 动画时间
      */
-    private var animDuration = 1000
+    var animDuration = 1000
     private var textSize = 14
     private var textColor: Int = Color.parseColor("#888888")
 
@@ -99,6 +99,10 @@ class XMarqueeView @JvmOverloads constructor(context: Context?, attrs: Attribute
         }
         if (mMarqueeViewAdapter != null) {
             throw RuntimeException("you have already set an Adapter")
+        }
+        if (isSetAnimDuration) {
+            inAnimation.duration = animDuration.toLong()
+            outAnimation.duration = animDuration.toLong()
         }
         mMarqueeViewAdapter = adapter
         mMarqueeViewAdapter!!.setOnDataChangedListener(this)

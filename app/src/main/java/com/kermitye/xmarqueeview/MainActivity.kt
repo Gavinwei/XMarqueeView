@@ -19,7 +19,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        binding.queeView.setItemCount(3)
+        //是否设置动画时间间隔
+//        binding.queeView.isSetAnimDuration = true
+        //动画时间
+//        binding.queeView.animDuration = 2000
+        //轮播间隔时间
+//        binding.queeView.flipInterval = 1500
+        binding.queeView.setItemCount(1)
         binding.queeView.setAdapter(adapter)
     }
 
